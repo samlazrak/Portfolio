@@ -2,45 +2,92 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import { animated, useSpring, config } from 'react-spring';
+import { useTrail } from 'react-spring';
 import styled from 'styled-components';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
-import Img from 'gatsby-image';
-import { SEO, Container, Layout, IndexHero, BGImageIndex } from '../components';
+import { Layout, ProjectItem } from '../components';
 
-const MainText = styled.p`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+const ListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  width: 100%;
 `;
 
-const Index = ({ data }) => {
-  const trail = 1;
+const Index = ({
+  data: {
+    allMdx: { nodes: projectEdges },
+  },
+  location,
+}) => {
+  const trail = useTrail(projectEdges.length, {
+    from: { height: '0%' },
+    to: { height: '100%' },
+  });
 
-  return <div></div>;
+  return (
+    <Layout pathname={location.pathname}>
+      <ListWrapper>
+        {trail.map((style, index) => (
+          <ProjectItem
+            testid={`projectItem-${index}`}
+            style={style}
+            key={projectEdges[index].fields.slug}
+            node={projectEdges[index]}
+          />
+        ))}
+      </ListWrapper>
+    </Layout>
+  );
 };
 
 export default Index;
 
+Index.propTypes = {
+  data: PropTypes.shape({
+    allMdx: PropTypes.shape({
+      nodes: PropTypes.arrayOf(
+        PropTypes.shape({
+          fields: PropTypes.shape({
+            slug: PropTypes.string,
+          }),
+          frontmatter: PropTypes.shape({
+            service: PropTypes.string,
+            color: PropTypes.string,
+            client: PropTypes.string,
+            cover: PropTypes.any,
+            background: PropTypes.any,
+          }),
+        }),
+      ),
+    }),
+  }).isRequired,
+  location: PropTypes.object.isRequired,
+};
+
 export const pageQuery = graphql`
-  query {
-    beetle: file(relativePath: { eq: "beetle.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 90) {
-          ...GatsbyImageSharpFluid_withWebp
+  query IndexQuery {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { sourceInstanceName: { eq: "projects" } } }
+    ) {
+      nodes {
+        fields {
+          slug
         }
-        resize(width: 800) {
-          src
-        }
-      }
-    }
-    wasp: file(relativePath: { eq: "wasp.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1920, quality: 90) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-        resize(width: 800) {
-          src
+        frontmatter {
+          service
+          color
+          client
+          cover {
+            childImageSharp {
+              fluid(
+                maxWidth: 850
+                quality: 90
+                traceSVG: { color: "#f3f3f3" }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              }
+            }
+          }
         }
       }
     }
