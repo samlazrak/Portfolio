@@ -6,6 +6,7 @@ import 'typeface-roboto';
 import SEO from './SEO';
 import Navigation from './Navigation';
 import Footer from './Footer';
+import Logo from './Logo';
 import theme from '../../config/theme';
 import reset from '../styles/reset';
 
@@ -18,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Merriweather", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   }
   .nav-active {
-    color: ${theme.brand.primary} !important;
+    color: ${theme.brand.combinations.complementary.primary} !important;
   }
 `;
 
@@ -30,9 +31,10 @@ const Layout = ({ children, pathname, customSEO }) => (
     <>
       {!customSEO && <SEO pathname={pathname} />}
       <GlobalStyle />
+      {/* <Logo /> */}
       <Navigation />
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   </ThemeProvider>
 );

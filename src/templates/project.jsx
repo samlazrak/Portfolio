@@ -37,7 +37,7 @@ const InfoBlock = styled.div`
     font-size: 0.75rem;
     font-weight: 700;
     color: ${(props) =>
-      props.customcolor ? props.customcolor : props.theme.colors.grey};
+      props.customcolor ? props.customcolor : props.theme.brand.grey};
   }
   div:last-child {
     font-size: 1rem;

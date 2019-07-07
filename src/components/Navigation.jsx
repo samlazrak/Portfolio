@@ -11,12 +11,12 @@ const Wrapper = styled.header`
   position: relative;
   z-index: 1000;
   a {
-    color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.brand.black};
     text-decoration: none;
     transition: all 0.3s ease-in-out;
     z-index: 100;
     &:hover {
-      color: ${(props) => props.theme.brand.primary};
+      color: ${(props) => props.theme.brand.combinations.complementary.primary};
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.s}) {
@@ -46,13 +46,13 @@ const Name = styled.div`
   flex: 1;
   justify-content: center;
   a {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     font-family: 'Merriweather', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       sans-serif;
-    font-weight: 700;
+    font-weight: 400;
     &:hover,
     &:focus {
-      color: ${(props) => props.theme.colors.body_color};
+      color: ${(props) => props.theme.body_color};
       text-decoration: none;
     }
   }
@@ -63,13 +63,19 @@ const Name = styled.div`
   }
 `;
 
+const SubName = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`;
+
 const SocialMedia = styled.div`
   display: flex;
   flex: 1;
   justify-content: flex-end;
   padding: 0 ${(props) => props.theme.spacer.horizontal};
   a {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 20px;
   }
   a:not(:first-child) {
@@ -103,9 +109,17 @@ const Navigation = () => {
         ))}
       </Nav>
       <Name>
-        <Link to="/" data-testid="home-title-link">
-          {config.siteTitle}
-        </Link>
+        <SubName>
+          {/* {config.siteTitle} */}
+          <Link to="/" data-testid="Home">
+            Home
+          </Link>
+        </SubName>
+        <SubName>
+          <Link to="/portfolio" data-testid="Portfolio">
+            Portfolio
+          </Link>
+        </SubName>
       </Name>
       <SocialMedia>
         <a

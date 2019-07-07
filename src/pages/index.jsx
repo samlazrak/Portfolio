@@ -12,84 +12,14 @@ const ListWrapper = styled.div`
   width: 100%;
 `;
 
-const Index = ({
-  data: {
-    allMdx: { nodes: projectEdges },
-  },
-  location,
-}) => {
-  const trail = useTrail(projectEdges.length, {
-    from: { height: '0%' },
-    to: { height: '100%' },
-  });
+const Index = () => {
+  const trail = 1;
 
   return (
     <Layout pathname={location.pathname}>
-      <ListWrapper>
-        {trail.map((style, index) => (
-          <ProjectItem
-            testid={`projectItem-${index}`}
-            style={style}
-            key={projectEdges[index].fields.slug}
-            node={projectEdges[index]}
-          />
-        ))}
-      </ListWrapper>
+      <div>Hi</div>
     </Layout>
   );
 };
 
 export default Index;
-
-Index.propTypes = {
-  data: PropTypes.shape({
-    allMdx: PropTypes.shape({
-      nodes: PropTypes.arrayOf(
-        PropTypes.shape({
-          fields: PropTypes.shape({
-            slug: PropTypes.string,
-          }),
-          frontmatter: PropTypes.shape({
-            service: PropTypes.string,
-            color: PropTypes.string,
-            client: PropTypes.string,
-            cover: PropTypes.any,
-            background: PropTypes.any,
-          }),
-        }),
-      ),
-    }),
-  }).isRequired,
-  location: PropTypes.object.isRequired,
-};
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { sourceInstanceName: { eq: "projects" } } }
-    ) {
-      nodes {
-        fields {
-          slug
-        }
-        frontmatter {
-          service
-          color
-          client
-          cover {
-            childImageSharp {
-              fluid(
-                maxWidth: 850
-                quality: 90
-                traceSVG: { color: "#f3f3f3" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

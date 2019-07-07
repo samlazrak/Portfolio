@@ -61,7 +61,8 @@ const ImageWrapper = styled.div`
 `;
 
 const Overlay = styled.div`
-  background-color: ${(props) => props.theme.brand.primary};
+  background-color: ${(props) =>
+    props.theme.brand.combinations.complementary.primary};
   height: 100%;
   left: 0;
   position: absolute;

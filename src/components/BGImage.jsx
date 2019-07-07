@@ -51,8 +51,8 @@ const BGImage = styled.div`
     backface-visibility: hidden;
     background: ${({
       theme,
-    }) => `linear-gradient(to bottom, ${shade} 0%, ${theme.colors.bg_color} 100%),
-      linear-gradient(to right, ${shade} 50%, ${theme.colors.bg_color} 100%)`};
+    }) => `linear-gradient(to bottom, ${shade} 0%, ${theme.bg_color} 100%),
+      linear-gradient(to right, ${shade} 50%, ${theme.bg_color} 100%)`};
     content: '';
     height: 100%;
     left: 0;
