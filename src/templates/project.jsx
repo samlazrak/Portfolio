@@ -47,6 +47,32 @@ const InfoBlock = styled.div`
 const Project = ({ data: { mdx: postNode, images }, location }) => {
   const project = postNode.frontmatter;
 
+  // development testing
+  /* const projectstr = JSON.stringify(project, null, 4);
+  const imagesstr = JSON.stringify(images, null, 4);
+  console.log('project: ' + projectstr);
+  console.log('images: ' + imagesstr);
+  let projectimages = [];
+  let imagesarray = [];
+  Object.keys(project.images).forEach(function(image) {
+    projectimages.push(project.images[image]); // value
+  });
+  Object.keys(images).forEach(function(name) {
+    imagesarray.push(images[name]); // value
+  });
+  Object.keys(project.images).forEach(function(image) {
+    console.log('project images');
+    console.log('key: ' + image);
+    console.log('value: ' + project.images[image]); // value
+  });
+  Object.keys(images).forEach(function(name) {
+    console.log('images');
+    console.log('key: ' + name);
+    console.log('value:' + images[name]); // value
+  });
+  console.log(projectimages);
+  console.log(imagesarray[0][0].name); */
+
   const titleProps = useSpring({
     config: config.slow,
     from: { opacity: 0, transform: 'translate3d(0, -30px, 0)' },
