@@ -81,7 +81,7 @@ const TracedGlow = styled.img`
   left: 0;
   right: 0;
   bottom: 0;
-  opacity: 0.08;
+  opacity: 1;
   filter: invert(100%);
   z-index: -1;
 `;
@@ -102,7 +102,7 @@ const ProjectItem = ({ node, style, testid }) => (
           src={node.frontmatter.cover.childImageSharp.fluid.tracedSVG}
           alt=""
         />
-        <Overlay style={{ backgroundColor: theme.link_color_hover_lighter }} />
+        <Overlay style={{ backgroundColor: theme.brand.colors.merino }} />
         {/* <h2>{node.frontmatter.client}</h2>
         <Service>{node.frontmatter.service}</Service> */}
       </Link>

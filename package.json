@@ -6,7 +6,7 @@
   "author": "Sam Lazrak <samlazrak@uab.edu> (https://www.samlazrak.com)",
   "scripts": {
     "develop": "gatsby develop",
-    "dev": "gatsby develop -o",
+    "dev": "rm -rf .cache && gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",

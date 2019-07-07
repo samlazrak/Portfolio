@@ -19,14 +19,14 @@ const Index = ({ data }) => {
 
   return (
     <Layout pathname={location.pathname}>
-      <IndexHero>
+      {/* <IndexHero>
         <BGImageIndex>
           <Img fluid={data.wasp.childImageSharp.fluid} alt="" />
         </BGImageIndex>
         <BGImageIndex>
           <Img fluid={data.beetle.childImageSharp.fluid} alt="" />
         </BGImageIndex>
-      </IndexHero>
+      </IndexHero> */}
     </Layout>
   );
 };

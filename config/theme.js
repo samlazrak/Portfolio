@@ -62,7 +62,7 @@ const brand = {
 
 const theme = {
   brand,
-  bg_color: colors.white,
+  bg_color: colors.merino,
   body_color: colors.charcoal,
   link_color: combinations.complementary.primary,
   link_color_hover_darker: `${darken(0.1, combinations.complementary.primary)}`,
