@@ -17,18 +17,7 @@ const MainText = styled.p`
 const Index = ({ data }) => {
   const trail = 1;
 
-  return (
-    <Layout pathname={location.pathname}>
-      {/* <IndexHero>
-        <BGImageIndex>
-          <Img fluid={data.wasp.childImageSharp.fluid} alt="" />
-        </BGImageIndex>
-        <BGImageIndex>
-          <Img fluid={data.beetle.childImageSharp.fluid} alt="" />
-        </BGImageIndex>
-      </IndexHero> */}
-    </Layout>
-  );
+  return <div></div>;
 };
 
 export default Index;
