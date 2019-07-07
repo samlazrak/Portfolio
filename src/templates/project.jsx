@@ -44,8 +44,9 @@ const InfoBlock = styled.div`
   }
 `;
 
-const Project = ({ data: { mdx: postNode }, location }) => {
+const Project = ({ data: { mdx: postNode, imageOne }, location }) => {
   const project = postNode.frontmatter;
+  const images = imageOne;
 
   const titleProps = useSpring({
     config: config.slow,
@@ -95,6 +96,7 @@ const Project = ({ data: { mdx: postNode }, location }) => {
       <Container type="text">
         <animated.div style={contentProps}>
           <MDXRenderer>{postNode.body}</MDXRenderer>
+          <Img fluid={images.childImageSharp.fluid} alt="" />
         </animated.div>
       </Container>
     </Layout>
@@ -106,6 +108,7 @@ export default Project;
 Project.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.object.isRequired,
+    imageOne: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
 };
@@ -149,6 +152,13 @@ export const pageQuery = graphql`
               src
             }
           }
+        }
+      }
+    }
+    imageOne: file(relativePath: { eq: "Snail.jpg" }) {
+      childImageSharp {
+        fluid(maxWidth: 1000) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
