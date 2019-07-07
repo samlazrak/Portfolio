@@ -16,7 +16,7 @@ module.exports = {
   ogLanguage: 'en_US',
   googleAnalyticsID: '',
 
-  // Manifest and Progress color
-  themeColor: '#333639',
-  backgroundColor: '#2b2e3c',
+  // Manifest and Progress color // used to be baltic_sea and black_rock
+  themeColor: '#b76157',
+  backgroundColor: '#57aeb7',
 };

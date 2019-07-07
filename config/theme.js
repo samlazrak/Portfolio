@@ -1,4 +1,4 @@
-import { darken } from 'polished';
+import { darken, lighten } from 'polished';
 
 const colors = {
   black: '#000',
@@ -15,6 +15,11 @@ const colors = {
   havelock_blue: '#577eb7',
   romance: '#F1EEE8',
   seashell: '#FEF6F3',
+  ivory: '#FFFEF5',
+  merino: '#DEDAD3',
+  baltic_sea: '#333639',
+  black_rock: '#2b2e3c',
+  dim_gray: '#6b6b6b',
 };
 const combinations = {
   complementary: {
@@ -57,10 +62,14 @@ const brand = {
 
 const theme = {
   brand,
-  bg_color: colors.romance,
+  bg_color: colors.white,
   body_color: colors.charcoal,
   link_color: combinations.complementary.primary,
-  link_color_hover: `${darken(0.15, combinations.complementary.primary)}`,
+  link_color_hover_darker: `${darken(0.1, combinations.complementary.primary)}`,
+  link_color_hover_lighter: `${lighten(
+    0.1,
+    combinations.complementary.primary,
+  )}`,
   breakpoints: {
     xs: '400px',
     s: '600px',

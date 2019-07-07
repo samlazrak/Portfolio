@@ -30,6 +30,13 @@ const Nav = styled.nav`
   flex: 1;
   justify-content: flex-start;
   padding: 0 ${(props) => props.theme.spacer.horizontal};
+  a {
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.link_color_hover_lighter};
+      text-decoration: none;
+    }
+  }
   a:not(:first-child) {
     margin-left: 1rem;
   }
@@ -52,7 +59,7 @@ const Name = styled.div`
     font-weight: 400;
     &:hover,
     &:focus {
-      color: ${(props) => props.theme.body_color};
+      color: ${(props) => props.theme.link_color_hover_lighter};
       text-decoration: none;
     }
   }
@@ -77,6 +84,11 @@ const SocialMedia = styled.div`
   a {
     font-size: 1.5rem;
     line-height: 20px;
+    &:hover,
+    &:focus {
+      color: ${(props) => props.theme.link_color_hover_lighter};
+      text-decoration: none;
+    }
   }
   a:not(:first-child) {
     margin-left: 1rem;

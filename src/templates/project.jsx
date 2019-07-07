@@ -70,7 +70,7 @@ const Project = ({ data: { mdx: postNode }, location }) => {
       <SEO pathname={location.pathname} postNode={postNode} article />
       <Hero>
         <BGImage customcolor={project.color}>
-          <Img fluid={project.background.childImageSharp.fluid} alt="" />
+          <Img fluid={project.cover.childImageSharp.fluid} alt="" />
         </BGImage>
         <Content type="text">
           <Title data-testid="project-title" style={titleProps}>

@@ -85,7 +85,7 @@ const reset = css`
     text-decoration: none;
     &:hover,
     &:focus {
-      color: ${theme.link_color_hover};
+      color: ${theme.link_color_hover_darker};
     }
   }
   a:not([href]):not([tabindex]) {
