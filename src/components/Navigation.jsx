@@ -148,14 +148,14 @@ const Navigation = () => {
         >
           <FaReddit />
         </a>
-        <a
+        {/* <a
           href="https://twitter.com/SamLazrak"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
         >
           <FaTwitter />
-        </a>
+        </a> */}
         <a
           href="https://www.instagram.com/samlazrak"
           target="_blank"
