@@ -44,9 +44,8 @@ const InfoBlock = styled.div`
   }
 `;
 
-const Project = ({ data: { mdx: postNode, imageOne }, location }) => {
+const Project = ({ data: { mdx: postNode, images }, location }) => {
   const project = postNode.frontmatter;
-  const images = imageOne;
 
   const titleProps = useSpring({
     config: config.slow,
@@ -95,8 +94,15 @@ const Project = ({ data: { mdx: postNode, imageOne }, location }) => {
       </Hero>
       <Container type="text">
         <animated.div style={contentProps}>
+          {images.nodes.map((image) => (
+            <Img
+              alt={image.name}
+              key={image.childImageSharp.fluid.src}
+              fluid={image.childImageSharp.fluid}
+              style={{ margin: '3rem 0' }}
+            />
+          ))}
           <MDXRenderer>{postNode.body}</MDXRenderer>
-          <Img fluid={images.childImageSharp.fluid} alt="" />
         </animated.div>
       </Container>
     </Layout>
@@ -108,13 +114,13 @@ export default Project;
 Project.propTypes = {
   data: PropTypes.shape({
     mdx: PropTypes.object.isRequired,
-    imageOne: PropTypes.object.isRequired,
+    images: PropTypes.object.isRequired,
   }).isRequired,
   location: PropTypes.object.isRequired,
 };
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query($slug: String!, $absolutePathRegex: String) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       excerpt
@@ -153,12 +159,22 @@ export const pageQuery = graphql`
             }
           }
         }
+        images
       }
     }
-    imageOne: file(relativePath: { eq: "Snail.jpg" }) {
-      childImageSharp {
-        fluid(maxWidth: 1000) {
-          ...GatsbyImageSharpFluid
+    images: allFile(
+      filter: {
+        absolutePath: { regex: $absolutePathRegex }
+        extension: { regex: "/(jpg)|(png)|(tif)|(tiff)|(webp)|(jpeg)/" }
+      }
+      sort: { fields: name, order: ASC }
+    ) {
+      nodes {
+        name
+        childImageSharp {
+          fluid(maxWidth: 1600, quality: 90) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }

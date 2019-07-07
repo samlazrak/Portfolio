@@ -55,6 +55,7 @@ Index.propTypes = {
             client: PropTypes.string,
             cover: PropTypes.any,
             background: PropTypes.any,
+            images: PropTypes.any,
           }),
         }),
       ),

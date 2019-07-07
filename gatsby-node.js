@@ -1,3 +1,4 @@
+const path = require('path');
 const _ = require('lodash');
 
 // graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
@@ -53,6 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
           filter: { fields: { sourceInstanceName: { eq: "projects" } } }
         ) {
           nodes {
+            fileAbsolutePath
             fields {
               slug
             }
@@ -62,6 +64,7 @@ exports.createPages = async ({ graphql, actions }) => {
           filter: { fields: { sourceInstanceName: { eq: "pages" } } }
         ) {
           nodes {
+            fileAbsolutePath
             fields {
               slug
             }
@@ -79,6 +82,7 @@ exports.createPages = async ({ graphql, actions }) => {
         // Pass "slug" through context so we can reference it in our query like "$slug: String!"
         slug: n.fields.slug,
       },
+      absolutePathRegex: `/^${path.dirname(n.fileAbsolutePath)}/`,
     });
   });
   result.data.single.nodes.forEach((n) => {
@@ -87,6 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: singlePage,
       context: {
         slug: n.fields.slug,
+        absolutePathRegex: `/^${path.dirname(n.fileAbsolutePath)}/`,
       },
     });
   });
