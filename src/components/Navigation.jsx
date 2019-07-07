@@ -1,6 +1,12 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import { FaInstagram, FaBehance, FaDribbble } from 'react-icons/fa';
+import {
+  FaInstagram,
+  FaBehance,
+  FaDribbble,
+  FaReddit,
+  FaTwitter,
+} from 'react-icons/fa';
 import styled from 'styled-components';
 import config from '../../config/website';
 
@@ -124,16 +130,32 @@ const Navigation = () => {
         <SubName>
           {/* {config.siteTitle} */}
           <Link to="/" data-testid="Home">
-            Home
+            {config.siteTitle}
           </Link>
         </SubName>
-        <SubName>
+        {/* <SubName>
           <Link to="/portfolio" data-testid="Portfolio">
             Portfolio
           </Link>
-        </SubName>
+        </SubName> */}
       </Name>
       <SocialMedia>
+        <a
+          href="https://reddit.com/user/samlazrak/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Reddit"
+        >
+          <FaReddit />
+        </a>
+        <a
+          href="https://twitter.com/SamLazrak"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          <FaTwitter />
+        </a>
         <a
           href="https://www.instagram.com/samlazrak"
           target="_blank"
