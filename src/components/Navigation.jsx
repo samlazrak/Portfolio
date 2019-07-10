@@ -1,12 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import {
-  FaInstagram,
-  FaBehance,
-  FaDribbble,
-  FaReddit,
-  FaTwitter,
-} from 'react-icons/fa';
+import { FaInstagram } from 'react-icons/fa';
 import styled from 'styled-components';
 import config from '../../config/website';
 
@@ -52,6 +46,8 @@ const Nav = styled.nav`
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
     order: 2;
   }
+  padding-left: 5%;
+  padding-right: 5%;
 `;
 
 const Name = styled.div`
@@ -59,7 +55,7 @@ const Name = styled.div`
   flex: 1;
   justify-content: center;
   a {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-family: 'Merriweather', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       sans-serif;
     font-weight: 400;
@@ -105,6 +101,13 @@ const SocialMedia = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.xs}) {
     order: 3;
   }
+  padding-left: 5%;
+  padding-right: 5%;
+`;
+
+const LogoImage = styled.img`
+  width: auto;
+  height: 5rem;
 `;
 
 // Grabs all MDX files from src/pages and puts them into the navigation
@@ -128,8 +131,11 @@ const Navigation = () => {
       </Nav>
       <Name>
         <SubName>
-          {/* {config.siteTitle} */}
           <Link to="/" data-testid="Home">
+            {/* <LogoImage
+              src={require('../../static/avatar.png')}
+              alt="Sam Lazrak"
+            /> */}
             {config.siteTitle}
           </Link>
         </SubName>
@@ -180,6 +186,13 @@ const query = graphql`
         }
         frontmatter {
           title
+        }
+      }
+    }
+    avatar: file(relativePath: { eq: "StaticImageAvatar.svg" }) {
+      childImageSharp {
+        fluid(maxWidth: 400) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
