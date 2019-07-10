@@ -17,10 +17,6 @@ const Content = styled(Container)`
   z-index: 3;
 `;
 
-const ContentBlock = styled.div`
-  padding: 0.5rem;
-`;
-
 const InformationWrapper = styled(animated.div)`
   display: flex;
   flex-direction: row;
@@ -48,16 +44,52 @@ const InfoBlock = styled.div`
   }
 `;
 
+const ProjectContent = styled(Container)`
+  padding-bottom: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+`;
+
+const ImageContent = styled(Container)`
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  padding-right: 4rem;
+`;
+
+const ImageContainer = styled(animated.div)`
+  display: flex;
+  flex-direction: column;
+`;
+
+const ImageInformationWrapper = styled(animated.div)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 3rem;
+`;
+
+const ImageInfoBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 2rem 0 0;
+  div:first-child {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: ${(props) =>
+      props.customcolor ? props.customcolor : props.theme.brand.grey};
+  }
+  div:last-child {
+    font-size: 1rem;
+  }
+`;
+
 const Project = ({ data: { mdx: postNode, images }, location }) => {
   const project = postNode.frontmatter;
-  if (images.nodes[0].name == 'Background') {
-    delete images.nodes[0];
-  } else {
-    console.log('Not here yet?');
-  }
   const fileType = postNode.frontmatter.images;
 
-  for (let i = 1; i < images.nodes.length; i++) {
+  for (let i = 0; i < images.nodes.length; i++) {
     let name = JSON.stringify(images.nodes[i].name);
     name = name.replace(/["]/g, '');
     let check = name.substring(0, 8);
@@ -116,25 +148,30 @@ const Project = ({ data: { mdx: postNode, images }, location }) => {
           </InformationWrapper>
         </Content>
       </Hero>
-      <Container>
-        <ContentBlock>
-          <ContentBlock>
-            <MDXRenderer>{postNode.body}</MDXRenderer>
-          </ContentBlock>
-          <ContentBlock type="text" style={contentProps}>
-            {images.nodes.map((image) => (
-              <ContentBlock>
-                <Img
-                  alt={image.name}
-                  key={image.childImageSharp.fluid.src}
-                  fluid={image.childImageSharp.fluid}
-                />
-                <h1>{image.name}</h1>
-              </ContentBlock>
-            ))}
-          </ContentBlock>
-        </ContentBlock>
-      </Container>
+      <ProjectContent>
+        <MDXRenderer>{postNode.body}</MDXRenderer>
+      </ProjectContent>
+      <ImageContent>
+        {images.nodes.map((image) => (
+          <ImageContainer style={contentProps}>
+            <Img
+              alt={image.name}
+              key={image.childImageSharp.fluid.src}
+              fluid={image.childImageSharp.fluid}
+            />
+            <ImageInformationWrapper style={infoProps}>
+              <ImageInfoBlock customcolor={project.color}>
+                <div>Name</div>
+                <div>"{image.name}"</div>
+              </ImageInfoBlock>
+              <ImageInfoBlock customcolor={project.color}>
+                <div>Date</div>
+                <div>{project.date}</div>
+              </ImageInfoBlock>
+            </ImageInformationWrapper>
+          </ImageContainer>
+        ))}
+      </ImageContent>
     </Layout>
   );
 };
