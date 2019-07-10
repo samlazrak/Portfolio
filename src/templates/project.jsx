@@ -17,6 +17,10 @@ const Content = styled(Container)`
   z-index: 3;
 `;
 
+const ContentBlock = styled.div`
+  padding: 0.5rem;
+`;
+
 const InformationWrapper = styled(animated.div)`
   display: flex;
   flex-direction: row;
@@ -46,32 +50,26 @@ const InfoBlock = styled.div`
 
 const Project = ({ data: { mdx: postNode, images }, location }) => {
   const project = postNode.frontmatter;
+  if (images.nodes[0].name == 'Background') {
+    delete images.nodes[0];
+  } else {
+    console.log('Not here yet?');
+  }
+  const fileType = postNode.frontmatter.images;
 
-  // development testing
-  /* const projectstr = JSON.stringify(project, null, 4);
-  const imagesstr = JSON.stringify(images, null, 4);
-  console.log('project: ' + projectstr);
-  console.log('images: ' + imagesstr);
-  let projectimages = [];
-  let imagesarray = [];
-  Object.keys(project.images).forEach(function(image) {
-    projectimages.push(project.images[image]); // value
-  });
-  Object.keys(images).forEach(function(name) {
-    imagesarray.push(images[name]); // value
-  });
-  Object.keys(project.images).forEach(function(image) {
-    console.log('project images');
-    console.log('key: ' + image);
-    console.log('value: ' + project.images[image]); // value
-  });
-  Object.keys(images).forEach(function(name) {
-    console.log('images');
-    console.log('key: ' + name);
-    console.log('value:' + images[name]); // value
-  });
-  console.log(projectimages);
-  console.log(imagesarray[0][0].name); */
+  for (let i = 1; i < images.nodes.length; i++) {
+    let name = JSON.stringify(images.nodes[i].name);
+    name = name.replace(/["]/g, '');
+    let check = name.substring(0, 8);
+    if (check == 'projects') {
+      let secondcheck = name.split('-', 2);
+      if (secondcheck[1] == fileType) {
+        console.log('true');
+      } else {
+        delete images.nodes[i];
+      }
+    }
+  }
 
   const titleProps = useSpring({
     config: config.slow,
@@ -118,18 +116,24 @@ const Project = ({ data: { mdx: postNode, images }, location }) => {
           </InformationWrapper>
         </Content>
       </Hero>
-      <Container type="text">
-        <animated.div style={contentProps}>
-          {images.nodes.map((image) => (
-            <Img
-              alt={image.name}
-              key={image.childImageSharp.fluid.src}
-              fluid={image.childImageSharp.fluid}
-              style={{ margin: '3rem 0' }}
-            />
-          ))}
-          <MDXRenderer>{postNode.body}</MDXRenderer>
-        </animated.div>
+      <Container>
+        <ContentBlock>
+          <ContentBlock>
+            <MDXRenderer>{postNode.body}</MDXRenderer>
+          </ContentBlock>
+          <ContentBlock type="text" style={contentProps}>
+            {images.nodes.map((image) => (
+              <ContentBlock>
+                <Img
+                  alt={image.name}
+                  key={image.childImageSharp.fluid.src}
+                  fluid={image.childImageSharp.fluid}
+                />
+                <h1>{image.name}</h1>
+              </ContentBlock>
+            ))}
+          </ContentBlock>
+        </ContentBlock>
       </Container>
     </Layout>
   );
