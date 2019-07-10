@@ -103,8 +103,8 @@ const ProjectItem = ({ node, style, testid }) => (
           alt=""
         />
         <Overlay style={{ backgroundColor: theme.brand.colors.merino }} />
-        {/* <h2>{node.frontmatter.client}</h2>
-        <Service>{node.frontmatter.service}</Service> */}
+        {/* <h2>{node.frontmatter.title}</h2>
+        <Service>{node.frontmatter.date}</Service> */}
       </Link>
     </Content>
   </Item>

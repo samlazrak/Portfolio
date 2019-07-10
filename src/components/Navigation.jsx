@@ -140,14 +140,14 @@ const Navigation = () => {
         </SubName> */}
       </Name>
       <SocialMedia>
-        <a
+        {/* <a
           href="https://reddit.com/user/samlazrak/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Reddit"
         >
           <FaReddit />
-        </a>
+        </a> */}
         {/* <a
           href="https://twitter.com/SamLazrak"
           target="_blank"
