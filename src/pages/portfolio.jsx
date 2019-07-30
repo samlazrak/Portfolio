@@ -57,7 +57,7 @@ Portfolio.propTypes = {
             background: PropTypes.any,
             images: PropTypes.any,
           }),
-        }),
+        })
       ),
     }),
   }).isRequired,

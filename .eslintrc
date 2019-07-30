@@ -51,6 +51,7 @@
     "space-before-function-paren": 0,
     "import/extensions": 0,
     "react/no-danger": 0,
+    "no-process-exit": 0,
     "react/display-name": 1,
     "react/react-in-jsx-scope": 0,
     "react/forbid-prop-types": 0,
@@ -73,10 +74,10 @@
     ],
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "prettier/prettier": [
-      "error",
+      "off",
       {
         "trailingComma": "es5",
-        "semi": false,
+        "semi": true,
         "singleQuote": true,
         "printWidth": 120
       }
