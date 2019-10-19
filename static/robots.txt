@@ -1,3 +1,0 @@
-User-agent: *
-
-sitemap: https://samlazrak.com/sitemap.xml

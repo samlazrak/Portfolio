@@ -1,0 +1,100 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro);
+
+body {
+    background: #263238;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.yellow {
+    color: #F8D77C;
+}
+
+.blue {
+    color: #7BCFF9;
+}
+
+.green {
+    color: #BED476;
+}
+
+.red {
+    color: #F55370;
+}
+
+.purple {
+    color: #A97EC9;
+}
+
+.indent {
+    margin: 0 0 0 25px;
+    line-height: 28px;
+    padding: 0;
+}
+
+.about-section {
+    widows: 100%;
+    max-width: 490px;
+    margin: 100px auto;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 28px;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #f5f5f5;
+}
+
+.contact-section {
+    margin-top: 30px;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+input {
+    background: #263238;
+    padding-bottom: 10px;
+    border: 0;
+    width: 100%;
+    margin: 10px auto;
+    height: 30px;
+    border-bottom: 1px solid #37474F;
+    outline: 0 !important;
+    color: #7BCFF9;
+    font-size: 16px;
+    text-indent: 5px;
+}
+
+::-webkit-input-placeholder {
+   color: #40525b;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #40525b;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #40525b;
+}
+
+:-ms-input-placeholder {
+   color: #40525b;
+}
+
+.particles-js {
+    position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+}
