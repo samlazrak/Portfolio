@@ -1,0 +1,83 @@
+"green": "#83a06c",
+"black": "#1f1f1f",
+"red": "#f07178",
+"yellow": "#ebc17a",
+"blue": "#769baa",
+"magenta": "#b06698",
+"cyan": "#9ac2be",
+"white": "#e1f3e7",
+"purple": "#bb90d8",
+"orange": "#c78547",
+"green-dark": "#667c55",
+"green-light": "#adc586",
+"green-very-light": "#afcaaf",
+"grey-comment": "#4e5350"
+"background": "#141314",
+"foreground": "#ccc2a6",
+
+"color0": "#322a2c",
+"color8": "#46423b",
+"color1": "#70473a",
+"color9": "#916255",
+"color2": "#534d35",
+"color1.1": "#858167",
+"color3": "#9c7650",
+"*color3.1": "#9c7650",
+"color11": "#ad8650",
+"color4": "#473e38",
+"color12": "#75715e",
+"color5": "#543b3b",
+"color13": "#6b5d51",
+"color6": "#332425",
+"color14": "#585858",
+"color7": "#9a875f",
+"color15": "#917154"
+
+  /* 
+  
+  primary: '#EFBB57',
+  primaryLight: '#f2c876',
+  primaryDark: '#ecae38',
+
+  secondary: '#95bf74',
+  secondaryLight: '#a7ca8b',
+  secondaryDark: '#83b45d',
+  /* 
+  background: '#FFFFFF',
+  backgroundDark: '#f0e6f6',
+
+  primary: '#7c37ad',
+  primaryLight: '#ae66df',
+  primaryDark: '#4b007d',
+
+  secondary: '#ff4081',
+  secondaryLight: '#ff79b0',
+  secondaryDark: '#c60055',
+   */
+
+  /* body {
+    background: #151515;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Source Code Pro', sans-serif;
+}
+
+.black {
+    color: #172228;
+}
+
+.cyan {
+    color: #6CB1B3;
+}
+
+.yellow {
+    color: #EFBB57;
+}
+
+.red {
+    color: #DB6763;
+}
+
+.green {
+    color: #95BF74;
+} */

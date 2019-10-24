@@ -1,4 +1,0 @@
-This is a Brave Rewards publisher verification file.
-
-Domain: samlazrak.com
-Token: 3d988e701f9023400b235b279eb82ad3a747e4b540a99dfcfac82360f3992b73
