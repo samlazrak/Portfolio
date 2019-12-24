@@ -194,14 +194,16 @@ html {
 	height: 100%;
 }
 
+/* background-image: linear-gradient( 109.6deg,  rgba(58,28,113,1) 11.2%, rgba(215,109,119,1) 54.2%, rgba(21,186,196,1) 99.4% ); */
+
 body {
 	height: 100%;
 	background-color: #ffffff;
-	background: linear-gradient(to right, #3a1c71, #d76d77, #15bac4);
-	background-image: url("images/overlay.png"), -moz-linear-gradient(to right, #3a1c71, #d76d77, #15bac4), url("../../images/bg.png");
-	background-image: url("images/overlay.png"), -webkit-linear-gradient(to right, #3a1c71, #d76d77, #15bac4), url("../../images/bg.png");
-	background-image: url("images/overlay.png"), -ms-linear-gradient(to right, #3a1c71, #d76d77, #15bac4), url("../../images/bg.png");
-	background-image: url("images/overlay.png"), linear-gradient(to right, #3a1c71, #d76d77, #15bac4), url("../../images/bg.png");
+	background: linear-gradient(109.6deg, rgba(58, 28, 113, 1) 11.2%, rgba(215, 109, 119, 1) 54.2%, rgba(21, 186, 196, 1) 99.4%);
+	background-image: url("images/overlay.png"), -moz-linear-gradient(109.6deg, rgba(58, 28, 113, 1) 11.2%, rgba(215, 109, 119, 1) 54.2%, rgba(21, 186, 196, 1) 99.4%), url("../../images/bg.png");
+	background-image: url("images/overlay.png"), -webkit-linear-gradient(109.6deg, rgba(58, 28, 113, 1) 11.2%, rgba(215, 109, 119, 1) 54.2%, rgba(21, 186, 196, 1) 99.4%), url("../../images/bg.png");
+	background-image: url("images/overlay.png"), -ms-linear-gradient(109.6deg, rgba(58, 28, 113, 1) 11.2%, rgba(215, 109, 119, 1) 54.2%, rgba(21, 186, 196, 1) 99.4%), url("../../images/bg.png");
+	background-image: url("images/overlay.png"), linear-gradient(109.6deg, rgba(58, 28, 113, 1) 11.2%, rgba(215, 109, 119, 1) 54.2%, rgba(21, 186, 196, 1) 99.4%), url("../../images/bg.png");
 	background-repeat: repeat, no-repeat, no-repeat;
 	background-size: 100px 100px, cover, cover;
 	background-position: top left, center center, bottom center;
@@ -219,10 +221,10 @@ body:after {
 	opacity: 0;
 	z-index: 1;
 	background-color: #ffffff;
-	background-image: url("images/overlay.png"), -moz-linear-gradient(to right, #fdef84, #f7c6a9, #15bac4);
-	background-image: url("images/overlay.png"), -webkit-linear-gradient(to right, #fdef84, #f7c6a9, #15bac4);
-	background-image: url("images/overlay.png"), -ms-linear-gradient(to right, #fdef84, #f7c6a9, #15bac4);
-	background-image: url("images/overlay.png"), linear-gradient(to right, #fdef84, #f7c6a9, #15bac4);
+	background-image: url("images/overlay.png"), -moz-linear-gradient(to right, #3a1c71, #f7c6a9, #15bac4);
+	background-image: url("images/overlay.png"), -webkit-linear-gradient(to right, #3a1c71, #f7c6a9, #15bac4);
+	background-image: url("images/overlay.png"), -ms-linear-gradient(to right, #3a1c71, #f7c6a9, #15bac4);
+	background-image: url("images/overlay.png"), linear-gradient(to right, #3a1c71, #f7c6a9, #15bac4);
 	background-repeat: repeat, no-repeat;
 	background-size: 100px 100px, cover;
 	background-position: top left, center center;
